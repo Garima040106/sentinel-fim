@@ -13,29 +13,29 @@ class FIMHandler(FileSystemEventHandler):
 
     def process(self, filepath):
 
-    if not os.path.isfile(filepath):
-        return
+        if not os.path.isfile(filepath):
+            return
 
-    new_hash = calculate_hash(filepath)
-    old_hash = baseline.get(filepath)
+        new_hash = calculate_hash(filepath)
+        old_hash = baseline.get(filepath)
 
-    if old_hash is None:
-        baseline[filepath] = new_hash
-        log_alert(
-            "New file detected",
-            severity="LOW",
-            filepath=filepath
-        )
+        if old_hash is None:
+            baseline[filepath] = new_hash
+            log_alert(
+                "New file detected",
+                severity="LOW",
+                filepath=filepath
+            )
 
-    elif old_hash != new_hash:
-        baseline[filepath] = new_hash
-        log_alert(
-            "File modified",
-            severity="HIGH",
-            filepath=filepath
-        )
+        elif old_hash != new_hash:
+            baseline[filepath] = new_hash
+            log_alert(
+                "File modified",
+                severity="HIGH",
+                filepath=filepath
+            )
 
-    save_baseline(baseline)
+        save_baseline(baseline)
 
     def on_created(self, event):
         self.process(event.src_path)
@@ -44,8 +44,8 @@ class FIMHandler(FileSystemEventHandler):
         self.process(event.src_path)
 
     def on_deleted(self, event):
-    log_alert(
-        "File deleted",
-        severity="CRITICAL",
-        filepath=event.src_path
-    )
+        log_alert(
+            "File deleted",
+            severity="CRITICAL",
+            filepath=event.src_path
+        )
