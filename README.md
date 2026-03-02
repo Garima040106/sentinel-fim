@@ -11,7 +11,32 @@ Sentinel is a lightweight host-based security tool that monitors filesystem acti
 The project was built to explore how modern endpoint protection and intrusion detection systems verify system integrity and detect early signs of compromise such as file tampering or ransomware-like behavior.
 
 ---
+# Sentinel FIM 🛡️
 
+(short project intro)
+
+## 🎬 Live Demonstration
+
+![Sentinel Demo](docs/demo.gif)
+
+## 🧭 Architecture
+
+```mermaid
+flowchart TD
+
+A[Linux Filesystem Events]
+--> B[Watchdog Observer]
+
+B --> C[Sentinel Monitoring Engine]
+
+C --> D[Hash Engine<br>SHA256 Verification]
+C --> E[Behavior Engine<br>Ransomware Detection]
+
+D --> F[Threat Classification]
+E --> F
+
+F --> G[Alert System]
+G --> H[Forensic Logger<br>JSON Logs]
 ## 🚀 Features
 
 * Real-time file monitoring using filesystem events
