@@ -1,7 +1,11 @@
 # Sentinel FIM 🛡️
 
 ### Real-Time File Integrity Monitoring & Behavioral Threat Detection for Linux
-
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Platform](https://img.shields.io/badge/Platform-Linux-green)
+![Security](https://img.shields.io/badge/Domain-Cybersecurity-red)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 Sentinel is a lightweight host-based security tool that monitors filesystem activity in real time and detects unauthorized or suspicious system changes.
 
 The project was built to explore how modern endpoint protection and intrusion detection systems verify system integrity and detect early signs of compromise such as file tampering or ransomware-like behavior.
